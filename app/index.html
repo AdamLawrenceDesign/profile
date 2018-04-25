@@ -25,19 +25,23 @@
 </head>
 
 <body>
+
+
   <div id="app" data-active-location>
-    <div id="widget">
-      <a class="link__prev ani__slide-down">Prev</a>
-      <a class="link__next ani__slide-down">Next</a>
+
+    <div class="menu">
+      <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/work">Work</a></li>
+          <li><a href="/resume">Resume</a></li>
+        </ul>
     </div>
-    <img id="nav__home" src="img/icon__hamburger.svg" />
+
   </div>
   <!--[if IE 8]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-  <!--  **********************************
-                    PAGES 
-      ************************************* -->
 
   <script id="page__start" type="text/x-handlebars-template">
     <div id="start-page" class="ani__temp  ani__slide-left" data-id="{{id}}" data-order="{{ order }}" data-state="{{state}}">
@@ -148,49 +152,7 @@
     {{/if}}
   </script>
 
-  <!--
-  unused 
-  <script id="template__range" type="text/x-handlebars-template">
-    <p>{{ question }}</p>
-    <div class="range__answer">
-      <input type="range" min="{{min}}" max="{{max}}" />
-      <div class="range__display"></div>
-    </div>
-  </script>-->
 
-  <!--  **********************************
-                FACT POP UP
-      ************************************* -->
-
-  <script id="template__fact" type="text/x-handlebars-template">
-    <div class="fact__background"></div>
-    <div class="fact__wrapper ani__pop">
-      <img class="fact__img ani__fade" src="img/icon__fact.svg" />
-      <img class="fact__close-btn ani__rotate" data-animtion-delay="100" src="img/icon__close.svg" />
-      <div class="fact__content">
-        <p class="ani__fade">{{ text }}</p>
-      </div>
-      <div class="fact__footer">
-        <a class="fact__next-btn ani__slide-down" data-animation-delay="200">Got it</a>
-      </div>
-    </div>
-  </script>
-
-
-  <!--  **********************************
-                BACKGROUNDS
-      ************************************* -->
-
-  <script id="template__location" type="text/x-handlebars-template">
-    <div id="{{id}}" class="location ani__fade" data-bg-order="null" data-bg-state="void" data-bg-id="{{id}}">
-      {{#if iconUrl}}
-      <div class="location__status">
-        <img class="location__img" src="{{iconUrl}}" />
-        <div class="location__score"></div>
-      </div>
-      {{/if}}
-    </div>
-  </script>
 
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->

@@ -10,35 +10,32 @@ import { SummaryPage } from './summary-page';
 
 export class App {
 
-    constructor(container, sampleData) {
+    currPage = null;
+
+    constructor(container) {
 
         this.container = container;
-        this.sampleData = sampleData;
-        this.appData = new AppData();
 
-        // Audit Value
-        this.value = {};
-
-        // Pages 
-        this.startPage = new StartPage(this.container, this.startWidget.bind(this), this.restart.bind(this));
-        this.summaryPage = new SummaryPage(this.container, this.restart.bind(this));
-
-        // location Component
-        this.location = new Location(this.container);
-        this.location.addLocations(['generic']);
-
-        // navigation
-        this.navigation = new Navigation(this.container, this.navigateTo.bind(this));
-
-        // Setup allow routes
-        page('/audit/:q', this.updateWidget.bind(this));
-        page('/audit/*', this.updateWidget.bind(this));
-        page('/home', this.setupHome.bind(this));
-        page('/summary', this.setupSummary.bind(this));
-        page('/', this.setupHome.bind(this));
-        page('*', this.setupHome.bind(this));
+        page('*', this.routeChange);
         page({ hashbang: true });
 
+        // Setup allow routes
+        // page('/audit/:q', this.updateWidget.bind(this));
+        // page('/audit/*', this.updateWidget.bind(this));
+        // page('/home', this.setupHome.bind(this));
+        // page('/summary', this.setupSummary.bind(this));
+        // page('/', this.setupHome.bind(this));
+        // page('*', this.setupHome.bind(this));
+        // page({ hashbang: true });
+    }
+
+    routeChange(event) {
+
+        var path = event.path;
+        var params = event.params;        
+
+        // 
+        console.log('path: ', path, ' params: ', params);
     }
 
     setupHome() {
@@ -94,62 +91,11 @@ export class App {
 
     }
 
-    setupWidget() {
-        // Get questions and answers from AJAX call with correct language!
-        var auditResults = null;
-        this.appData.setup(this.sampleData.questions, this.sampleData.facts, auditResults);
-        // update locations
-        this.location.addLocations(this.appData.locations);
-        // Update location needed for updating the view on route changes
-        this.widget = new Widget(this.container, this.appData.questions, this.appData.auditValue, this.appData.factByAnswerIdLookup, this.navigateTo.bind(this), this.valueChange.bind(this));
-    }
-
-    startWidget() {
-        this.setupWidget();
-
-        // Go to first
-        var firstQuestionId = this.appData.questions[0].id;
-        this.location.updateView(this.appData.getLocationId(firstQuestionId));
-        page('/audit/' + firstQuestionId);
-    }
-
-    reload(id) {
-        // Change view state of start page
-        this.startPage.appStarted();
-        this.setupWidget();
-        page('/audit/' + id);
-    }
-
-    restart(data) {
-
-        this.appData.auditValue = {};
-
-        if (!this.appData.questions.length) {
-            this.startWidget();
-            return;
-        }
-
-        if (this.widget) {
-            this.widget.reset();
-        }
-
-        page('/audit/' + this.appData.questions[0].id);
-    }
-
     navigateTo(route) {
         // All route changes are handled here
         page(route);
     }
 
-    valueChange(questionId, value) {
 
-        this.appData.updateValue(questionId, value);
-
-        var locationId = this.appData.getLocationId(questionId);
-        var locationRiskLevel = this.appData.getLocationScore(locationId);
-
-        this.location.updateScore(locationRiskLevel);
-
-    }
 
 }

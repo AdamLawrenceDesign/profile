@@ -1,6 +1,6 @@
 
 
-export class StateManager {
+export class AnimationController {
 
     constructor(container) {
         this.container = container ? container : document;
