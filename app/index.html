@@ -41,27 +41,9 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <script id="home" type="text/x-handlebars-template">
-    <div id="home__wrap" class="ani__temp  ani__slide-left">
-        Home Page
-    </div>
-  </script>
-
-  <script id="about" type="text/x-handlebars-template">
-    <div id="about__wrap" class="ani__temp  ani__slide-left">
-       {{ title }}
-    </div>
-  </script>
-
-  <script id="work" type="text/x-handlebars-template">
-    <div id="work__wrap" class="ani__temp  ani__slide-left">
-        Work Page
-    </div>
-  </script>
-
-  <script id="resume" type="text/x-handlebars-template">
-    <div id="resume__wrap" class="ani__temp  ani__slide-left">
-        Resume Page
+  <script id="template__page" type="text/x-handlebars-template">
+    <div id="{{id}}" data-active="true" class="ani__temp ani__slide-left">
+        {{ title }}
     </div>
   </script>
 
