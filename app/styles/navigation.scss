@@ -1,0 +1,25 @@
+
+#nav__home {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    height: 28px;
+    width: 28px;
+    cursor: pointer;
+
+    // top index
+    z-index: 10;
+}
+
+#nav__summary {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+
+    z-index: 10;
+    
+}
+

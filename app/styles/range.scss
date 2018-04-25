@@ -1,0 +1,129 @@
+@import 'base';
+
+$range-btn: white;
+$range-line: #828282;
+
+.range__answer {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.range__display {
+    margin-top: 20px;
+    padding: 10px;
+    
+    font-size: 22px;
+}
+
+input[type=range] {
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1;
+  height: 2em;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 2em;
+  height: 2em;
+  margin-top: 0;
+  background-color: $range-btn;
+  border-radius: 1em;
+  border: 2px solid $range-line;
+  cursor: pointer;
+
+    -webkit-transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    transition-duration: 100ms;
+
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 2em;
+  height: 2em;
+  margin-top: 0;
+  background-color: $range-btn;
+  border-radius: 1em;
+  border: 2px solid #fafafa;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-thumb {
+  width: 2em;
+  height: 2em;
+  margin-top: 0;
+  background-color: $range-btn;
+  border-radius: 1em;
+  border: 2px solid #fafafa;
+  cursor: pointer;
+}
+
+input[type=range]:hover::-webkit-slider-thumb {
+  border-color: $range-line;
+  transform: scale(1.1);
+}
+
+input[type=range]:hover::-moz-range-thumb {
+  border-color: $range-line;
+  transform: scale(1.1);
+}
+
+input[type=range]:hover::-ms-thumb {
+  border-color: $range-line;
+  transform: scale(1.1);
+}
+
+input[type=range]:active::-webkit-slider-thumb {
+  border-color: $range-line;
+}
+
+input[type=range]:active::-moz-range-thumb {
+  border-color: $range-line;
+}
+
+input[type=range]:active::-ms-thumb {
+  border-color: $range-line;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  cursor: pointer;
+  height: 1em;
+  border-bottom: 2px solid $range-line;
+  background-color: transparent;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  cursor: pointer;
+  height: 1em;
+  border-bottom: 2px solid $range-line;
+  background-color: transparent;
+}
+
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}

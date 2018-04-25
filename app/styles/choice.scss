@@ -1,0 +1,106 @@
+@import 'base';
+
+$selected-bg:  #036bb4;
+$hover-bg: #fff;
+
+
+ul.choice {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    text-align: center;
+
+    li.choice__answer {
+        position: relative;
+        padding: 10px;
+        max-width: 360px;
+        margin: 20px auto;
+        padding: 16px;
+
+        cursor: pointer;
+
+        // if background white remove after element
+        background: rgba(255, 255, 255, .8);
+        box-shadow: 0px 6px 32px -5px rgba(0, 0, 0, 0.3);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        input {
+            visibility: hidden;
+            position: absolute;
+        }
+
+        &:after {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            width: 100%;
+            height: 1px;
+            content: '';
+
+            -webkit-transition-timing-function: ease-out;
+            -moz-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+            transition-duration: 400ms;
+
+            transform: scaleX(-100%);
+
+            background: $hover-bg;
+            visibility: none;
+            opacity: 0;
+            z-index: -1;
+
+        }
+
+        .choice__tick {    
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            margin-left: 22px;
+            top: 8px;
+            right: 15px;
+
+            opacity:0;            
+
+        }
+
+        &:hover {
+            &:after {
+                opacity: 1;
+                visibility: visible;
+                height: 100%;
+                transform: scaleX(1);
+            }
+        }
+
+        &.choice__answer--active {
+
+            color: white;
+
+            .choice__tick {
+                -webkit-animation: scale-in-center 0.5s cubic-bezier(0.680, -0.550, 0.265, 1.550) ;
+                -moz-animation: scale-in-center 0.5s cubic-bezier(0.680, -0.550, 0.265, 1.550) ;
+                animation: scale-in-center 0.5s cubic-bezier(0.680, -0.550, 0.265, 1.550) ;
+                opacity: 1;
+            }
+
+
+            &:after {
+                opacity: 1;
+                visibility: visible;
+                height: 100%;
+                background: $selected-bg;
+                transform: scaleX(1);
+            }
+        }
+
+    }
+
+}

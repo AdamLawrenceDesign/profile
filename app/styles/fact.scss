@@ -1,0 +1,80 @@
+@import 'base';
+@import 'animations';
+
+$btn-bg: #036bb4;
+$hover-bg: #ebebeb;
+
+.fact__background {
+    background: rgba(255, 255, 255, .2);
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.fact__wrapper {
+    position: absolute;
+    z-index: 6;
+    bottom: 160px;
+    margin: auto;
+    left: 0;
+    right: 0;
+
+    width: 528px;
+    height: 600px;
+
+    @include fxFlex;
+    @include fxDirection;
+
+    background: white;
+    box-shadow: 0px 1px 55px -4px rgba(0, 0, 0, 0.3);
+
+    .fact__img {
+        height: 100px;
+        width: 100px;
+        margin: 30px auto;
+    }
+
+    .fact__close-btn {
+        content: 'X';
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 18px;    
+        cursor: pointer;
+    }
+
+    .fact__content {
+        @include fxGrow(1);
+
+        padding-left: 20px;
+        padding-right: 20px;
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+    }
+
+    .fact__footer {
+        padding: 20px;
+    }
+
+    .fact__next-btn {
+        display: block;
+        cursor: pointer;
+        padding: 7px 20px;
+
+        color: white;
+        background: $btn-bg;
+        border-radius: 2px;
+
+        font-size: 16px;
+        text-transform: uppercase;
+
+    }
+
+}

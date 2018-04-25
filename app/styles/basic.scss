@@ -1,0 +1,57 @@
+@import 'base';
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+
+}
+
+body {
+  margin: 0;
+  font-family: $font-paragraph;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+#app {
+    overflow-x: hidden;
+    display: block;
+    background: $theme-neutral__bg--light; //  aquamarine;
+    display: flex;
+    height: 100%;
+    position: relative;
+    display: block;
+}
+
+.router-link {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 15px;
+
+  text-decoration: none;
+  border-radius: 2px;
+  color: $text-clr;
+  background: #fff;
+  font-size: 14px;
+
+  &:hover {
+    background: #fafafa;
+  }
+
+}
+
+html.no-svg {
+  #app {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {}

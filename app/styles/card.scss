@@ -1,0 +1,130 @@
+@import 'base';
+@import 'animations';
+
+$link-bg: #fff;
+
+.card {
+    @include fxFlex;
+    @include fxDirection;
+    // @include fxJustify(center);
+
+    padding: 20px;
+    margin: 50px auto;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    z-index: 2;
+
+    // Needed for IE 10
+    &[data-state='next'], &[data-state='prev'] {
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .card__question {
+        position: relative;
+        margin-bottom: 60px;
+
+        background: $link-bg;
+
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+
+        p {
+            position: relative;
+            margin: 15px 25px;
+            line-height: 1.6;
+            font-size: 20px;
+        }
+
+        &:before {
+            // content: ' ';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            margin: 0;
+            width: 100%;
+            height: 11px;
+
+            background: url('../img/vector__question-top.svg');
+            background-repeat: no-repeat;            
+        }
+
+        &:after {
+            // content: ' ';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            margin: 0;
+            width: 100%;
+            height: 11px;
+
+            background: url('../img/vector__question-bottom.svg');
+            background-repeat: no-repeat;            
+        }
+
+        .card__question-bg {
+            position: absolute;
+            left: 8px;
+            bottom: -50px;
+            height: 50px;
+            width: 110px;
+
+            background: url('../img/vector__question-fold.svg');
+            background-repeat: no-repeat;                    
+
+        }
+
+    }
+
+    .card__content {
+        @include fxGrow(1);
+    }
+
+    .card__btn-wrap {
+        @include fxFlex;
+
+        margin-top: 20px;
+
+    }
+
+    .link__prev, .link__next {
+        display: inline-block;
+        cursor: pointer;
+        padding: 7px 20px;
+
+        background: $link-bg;
+        border-radius: 2px;
+        
+        color: #333;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+
+    .link__prev {
+        margin-right: auto;
+    }
+
+    .link__next {
+        margin-left: auto;
+    }
+
+}
+
+@media only screen and (min-width: 620px) {
+
+    .card {
+        @include fxJustify(center);
+        margin-top: 0;
+    }
+
+    .card  .card__question:before, .card  .card__question:after  {
+        content: '';
+    }
+
+}

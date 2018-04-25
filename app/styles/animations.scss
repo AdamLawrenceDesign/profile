@@ -1,0 +1,234 @@
+@import 'animation-keyframes';
+
+// Animation classes
+
+.ani__temp {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.ani__slide-down {
+    opacity: 0;
+    pointer-events: none;
+
+    &.ani__slide-down--enter {
+        -webkit-animation: slide-down-in 0.5s cubic-bezier(0.680, -0.550, 0.265, 1.550) ;
+        -moz-animation: slide-down-in 0.5s cubic-bezier(0.680, -0.550, 0.265, 1.550) ;
+        animation: slide-down-in 0.5s cubic-bezier(0.680, -0.550, 0.265, 1.550) ;
+
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    &.ani__slide-down--leave {
+        -webkit-animation: slide-down-out .2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        -moz-animation: slide-down-out .2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: slide-down-out .2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+}
+
+.ani__pop {
+    opacity: 0;
+    pointer-events: none;
+
+    &.ani__pop--enter {
+        -webkit-animation: scale-in-center 0.5s cubic-bezier(0.680, -0.550, 0.265, 1.550) ;
+        -moz-animation: scale-in-center 0.5s cubic-bezier(0.680, -0.550, 0.265, 1.550) ;
+        animation: scale-in-center 0.5s cubic-bezier(0.680, -0.550, 0.265, 1.550) ;
+
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    &.ani__pop--leave {
+        -webkit-animation: scale-out-center .2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        -moz-animation: scale-out-center .2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: scale-out-center .2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+}
+
+.ani__rotate {
+    opacity: 0;
+    pointer-events: none;
+
+    &.ani__rotate--enter {
+        -webkit-animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        -moz-animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+        opacity: 1;
+        pointer-events: all;
+
+    }
+
+    &.ani__rotate--leave {
+        -webkit-animation: rotate-out-center 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        -moz-animation: rotate-out-center 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: rotate-out-center 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+}
+
+
+.ani__bounce {
+    opacity: 0;
+    pointer-events: none;
+
+    &.ani__bounce--enter {
+        -webkit-animation: bounce-in-right 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        -moz-animation: bounce-in-right 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: bounce-in-right 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+        opacity: 1;
+        pointer-events: all;
+
+    }
+
+    &.ani__bounce--leave {
+        -webkit-animation: rotate-out-center 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        -moz-animation: rotate-out-center 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: rotate-out-center 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+}
+
+// Simple animations 
+.ani__fade {
+    opacity: 0;
+    pointer-events: none;
+
+    &.ani__fade--enter {
+        -webkit-animation: fade-in-bck 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        -moz-animation: fade-in-bck 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: fade-in-bck 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    &.ani__fade--leave {
+        -webkit-animation: fade-out-bl 1s ease-out both;
+        -moz-animation: fade-out-bl 1s ease-out both;
+        animation: fade-out-bl 1s ease-out both;
+
+        opacity: 0;
+        pointer-events: none;
+    }
+
+}
+
+.ani__slide {
+    opacity: 0;
+    pointer-events: none;
+
+    &.ani__slide--enter-left {
+        -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        -moz-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        pointer-events: all;
+    }
+
+    &.ani__slide--enter-right {
+        -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        -moz-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        pointer-events: all;
+    }
+
+    &.ani__slide--leave-left {
+        -webkit-animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        -moz-animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+    &.ani__slide--leave-right {
+        -webkit-animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        -moz-animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+
+}
+
+.ani__slide-left {
+    opacity: 0;
+    pointer-events: none;
+
+    &.ani__slide-left--enter {
+        -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        -moz-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        pointer-events: all;
+    }
+
+    &.ani__slide-left--leave {
+        -webkit-animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        -moz-animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+}
+
+.ani__slide-right {
+    opacity: 0;
+    pointer-events: none;
+
+    &.ani__slide-right--enter {
+        -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        -moz-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        pointer-events: all;
+    }
+
+    &.ani__slide-right--leave {
+        -webkit-animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        -moz-animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+}
+
+
+// Modernizer overwrites 
+// Remove all transitions for IE 8
+html.no-cssanimations {
+
+    .ani__slide-left,
+    .ani__slide-right,
+    .ani__fade,
+    .ani__slide,
+    .ani__slide-left,
+    .ani__slide-right,
+    .ani__pop   {
+        opacity: 1;
+        pointer-events: all;
+        display: none;
+
+        &.ani__slide-left--enter,
+        &.ani__slide-right--enter,
+        &.ani__fade--enter,
+        &.ani__slide--enter-left,
+        &.ani__slide--enter-right,
+        &.ani__slide-left--enter,
+        &.ani__slide-right--enter,
+        &.ani__pop--enter   {
+            display: inline-block;
+        }
+
+        &.ani__slide-left--leave,
+        &.ani__slide-right--leave,
+        &.ani__fade--leave,
+        &.ani__slide--leave-left,
+        &.ani__slide--leave-right,
+        &.ani__slide-left--leave,
+        &.ani__slide-right--leave,
+        &.ani__pop--leave {
+            display: none;
+        }
+
+    }
+
+}
+
