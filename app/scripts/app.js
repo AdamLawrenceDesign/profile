@@ -1,32 +1,22 @@
-import { Question } from './question';
-import { Fact } from './fact';
-import { Widget } from './widget';
-import { Navigation } from './navigation';
-import { Location } from './location';
-import { AppData } from './app-data';
 
-import { StartPage } from './start-page';
-import { SummaryPage } from './summary-page';
+import { AnimationController } from './animation.controller';
 
 export class App {
 
-    currPage = null;
-
     constructor(container) {
 
-        this.container = container;
+        console.log('container', container);
 
+        this.container = container;
+        this.currPage = null;
+        this.animate = new AnimationController(container);
+
+        page('/about', this.about.bind(this));
         page('*', this.routeChange);
         page({ hashbang: true });
 
         // Setup allow routes
         // page('/audit/:q', this.updateWidget.bind(this));
-        // page('/audit/*', this.updateWidget.bind(this));
-        // page('/home', this.setupHome.bind(this));
-        // page('/summary', this.setupSummary.bind(this));
-        // page('/', this.setupHome.bind(this));
-        // page('*', this.setupHome.bind(this));
-        // page({ hashbang: true });
     }
 
     routeChange(event) {
@@ -34,68 +24,31 @@ export class App {
         var path = event.path;
         var params = event.params;        
 
-        // 
         console.log('path: ', path, ' params: ', params);
     }
 
-    setupHome() {
-        // If back state from summary
-        if (this.summaryPage.htmlElement) {
-            this.summaryPage.hide();
+    about() {
+
+        console.log('show about');
+        var source = document.getElementById('about');
+        var template = Handlebars.compile(source.innerHTML);
+
+        var context = {
+            title: 'About'
         }
 
-        this.location.updateView('generic');
-        this.startPage.show();
-    }
 
-    setupSummary() {
+        this.container.insertAdjacentHTML('beforeend', template(context));
 
-        if (!this.widget) {
-            this.startWidget();
-            return;
-        }
+        this.animate.enter(document.getElementById('about__wrap'));
 
-        var summaryData = this.appData.getSummaryData();
-
-        if (!summaryData) {
-            this.setupHome();
-            return;
-        }
-
-        this.location.updateView('generic');
-        this.startPage.hide();
-        this.summaryPage.show(summaryData);
-    }
-
-    updateWidget(event) {
-        var path = event.path;
-        var params = event.params;
-
-        // user attempting to load widget route
-        if (!this.widget && params.q) {
-            this.reload(params.q);
-            return;
-        }
-
-        // If back state from summary
-        if (this.summaryPage.htmlElement) {
-            this.summaryPage.hide();
-        }
-
-        var questionId = params.q;
-        var locationId = this.appData.getLocationId(questionId);
-
-        this.startPage.hide();
-        this.location.updateView(locationId);
-        this.widget.updateView(questionId);
+        this.currPage = document.getElementById('about__wrap');
 
     }
 
-    navigateTo(route) {
-        // All route changes are handled here
-        page(route);
+
+    removePage(page) {
+        this.animate.leave(page);
     }
-
-
 
 }

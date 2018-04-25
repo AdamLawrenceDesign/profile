@@ -28,7 +28,6 @@
 
 
   <div id="app" data-active-location>
-
     <div class="menu">
       <ul>
           <li><a href="/">Home</a></li>
@@ -37,122 +36,34 @@
           <li><a href="/resume">Resume</a></li>
         </ul>
     </div>
-
   </div>
   <!--[if IE 8]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <script id="page__start" type="text/x-handlebars-template">
-    <div id="start-page" class="ani__temp  ani__slide-left" data-id="{{id}}" data-order="{{ order }}" data-state="{{state}}">
-      <img class="start-page__icon ani__pop" src="img/icon__home.svg" />
-      <div class="start-page__content ani__fade">
-        <h2>Audit Tool</h2>
-        <p>Welcome</p>
-      </div>
-      <div class="start-page__footer">
-        <a class="start-page__start-btn">Start</a>
-        <a class="start-page__reset-btn">Reset</a>
-        <a class="start-page__continue-btn">Continue</a>
-      </div>
+  <script id="home" type="text/x-handlebars-template">
+    <div id="home__wrap" class="ani__temp  ani__slide-left">
+        Home Page
     </div>
   </script>
 
-  <script id="page__summary" type="text/x-handlebars-template">
-    <div id="summary" class="ani__temp  ani__slide-right" data-id="{{id}}" data-order="{{ order }}" data-state="{{state}}">
-      <img class="summary__icon ani__pop" src="img/icon__status.svg" />
-      <div class="summary__content ani__fade">
-        <h2>Summary</h2>
-        <p>Your Overall Score</p>
-        <div class="summary__overall-score">{{total}}</div>
-        {{#each locations}} {{> location }} {{/each}}
-      </div>
-      <div class="summary__footer">
-        <a class="summary__reset-btn">Try Again</a>
-      </div>
+  <script id="about" type="text/x-handlebars-template">
+    <div id="about__wrap" class="ani__temp  ani__slide-left">
+       {{ title }}
     </div>
   </script>
 
-  <script id="template__location-result" type="text/x-handlebars-template">
-    <div class="summary__location-result ani__slide-down" data-animation-delay="200">
-      <div class="summary__location-icon">
-        <img class="ani__pop" src="{{iconUrl}}" />
-      </div>
-      <h4>{{name}}</h4>
-      <span>{{score}}</span>
+  <script id="work" type="text/x-handlebars-template">
+    <div id="work__wrap" class="ani__temp  ani__slide-left">
+        Work Page
     </div>
   </script>
 
-  <!--  **********************************
-                    QUESTION 
-      ************************************* -->
-
-  <script id="template__question" type="text/x-handlebars-template">
-    <div class="card card--{{location}} ani__slide" data-id="{{id}}" data-order="{{ order }}" data-state="{{state}}">
-      <!--<img class="card__icon ani__pop" src="img/icon__q.svg" />-->
-      {{> questionWrap }}
+  <script id="resume" type="text/x-handlebars-template">
+    <div id="resume__wrap" class="ani__temp  ani__slide-left">
+        Resume Page
     </div>
   </script>
-
-  <!--  **********************************
-              QUESTION PARTIALS
-      ************************************* -->
-
-  <script id="template__multi-choice" type="text/x-handlebars-template">
-    <div class="card__question ani__pop">
-      <div class="card__question-bg"></div>
-      <p>{{ question }}</p>
-    </div>
-    {{#if answers.length}}
-    <ul class="multi-choice">
-      {{#each answers}}
-      <li class="multi-choice__answer ani__slide-down" data-animation-delay="100" data-answer-weight="{{weight}}" data-answer-id="{{id}}"
-        data-answer-fact="{{fact}}">
-        {{answer}}
-        <input type="checkbox" id="{{id}}" />
-      </li>
-      {{/each}}
-    </ul>
-    {{/if}}
-  </script>
-
-  <script id="template__choice" type="text/x-handlebars-template">
-    <div class="card__question ani__pop">
-      <div class="card__question-bg"></div>
-      <p>{{ question }}</p>
-    </div>
-    {{#if answers.length}}
-    <ul class="choice">
-      {{#each answers}}
-      <li class="choice__answer ani__slide-down" data-animation-delay="100" data-answer-weight="{{weight}}" data-answer-id="{{id}}"
-        data-answer-fact="{{fact}}">
-        {{answer}}
-        <input type="checkbox" id="{{id}}" />
-      </li>
-      {{/each}}
-    </ul>
-    {{/if}}
-  </script>
-
-  <script id="template__bool" type="text/x-handlebars-template">
-    <div class="card__question ani__pop">
-      <div class="card__question-bg"></div>
-      <p>{{ question }}</p>
-    </div>
-    {{#if answers.length}}
-    <ul class="bool">
-      {{#each answers}}
-      <li class="bool__answer ani__slide-down" data-animation-delay="100" data-answer-weight="{{weight}}" data-answer-id="{{id}}"
-        data-answer-fact="{{fact}}">
-        {{ answer }}
-        <input type="checkbox" id="{{id}}" />
-      </li>
-      {{/each}}
-    </ul>
-    {{/if}}
-  </script>
-
-
 
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->

@@ -18,8 +18,8 @@ export class AnimationController {
         var animationName = this.getAnimationName(element.className);
 
         element.classList.remove(animationName + '--leave');
-        element.classList.add(animationName + '--enter');
         element.classList.remove(animationName + '--active');
+        element.classList.add(animationName + '--enter');
 
         if (!callback) {
             return;
