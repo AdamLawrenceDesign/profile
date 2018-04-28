@@ -149,6 +149,20 @@
         animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
     }
 
+    &.ani__slide--enter-down {
+        -webkit-animation: slide-down-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        -moz-animation: slide-down-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: slide-down-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+    &.ani__slide--leave-down {
+        -webkit-animation: slide-down-out 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        -moz-animation: slide-down-out 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: slide-down-out 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+
+
 
 }
 

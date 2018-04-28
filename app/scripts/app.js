@@ -61,7 +61,7 @@ export class App {
 
         var htmlElement = this.container.querySelector('#' + this.currPage);
 
-        this.animate.leave(htmlElement, () => {
+        this.animate.leaveWithModifier(htmlElement, leaveDirection, () => {
 
             this.container.removeChild(htmlElement);
             this.pageEnter(name, enterDirection);
@@ -74,16 +74,23 @@ export class App {
         var template = Handlebars.compile(source);
 
         this.container.insertAdjacentHTML('beforeend', template({name: name}));
-        this.animate.enter( document.getElementById(name));
+        this.animate.enterWithModifier( document.getElementById(name), direction);
         this.currPage = name;
     }
 
     getEnterDirection(curr, next) {
-        return 'right';
+
+        const currIndex = routes.findIndex(r => r.name === curr);
+        const nextIndex = routes.findIndex(r => r.name === next);
+
+        return currIndex < nextIndex ? 'right' : 'left';
     }
 
     getLeaveDirection(curr, next) {
-        return 'left';
+        const currIndex = routes.findIndex(r => r.name === curr);
+        const nextIndex = routes.findIndex(r => r.name === next);
+
+        return currIndex > nextIndex ? 'right' : 'left';
     }
 
     // routeChange(event) {

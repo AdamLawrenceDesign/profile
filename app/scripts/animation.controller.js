@@ -48,7 +48,7 @@ export class AnimationController {
 
     }
 
-    leaveWithModifier(element, modifier) {
+    leaveWithModifier(element, modifier, callback) {
         // Accepts query selector and element
         if (typeof element === 'string') {
             element = this.container.querySelector(element);
@@ -62,6 +62,10 @@ export class AnimationController {
         }
 
         element.classList.add(animationName + '--leave-' + modifier);
+
+        setTimeout(() => {
+            callback();
+        }, 500);
 
     }
 
