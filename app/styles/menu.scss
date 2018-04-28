@@ -1,0 +1,53 @@
+@import 'vars';
+
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+
+    z-index: 10;
+
+    width: $menu-width;
+    height: 100%;
+    background: #101010;
+
+    color: white;
+    font-size: $font-size;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+
+        font-size: $font-size;
+        color: white;
+    }
+
+    li {
+        padding: 16px;
+        display: block;
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a {
+        display: block;
+        padding: $gutter/2;
+
+        cursor: pointer;
+
+        color: white;
+        font-size: inherit;
+        text-decoration: none;
+
+        &:hover {
+            color: $gray-60;
+        }
+
+    }
+
+}

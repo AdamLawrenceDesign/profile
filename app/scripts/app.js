@@ -5,6 +5,8 @@ export class App {
 
     constructor(container) {
 
+        console.log('container', container);
+
         this.container = container;
         this.currElement = null;
         this.currId = null;
@@ -51,7 +53,7 @@ export class App {
         if (this.currElement) {
             this.animate.leave(this.currElement);
         }
-        
+
         this.animate.enter(htmlElement);
 
         this.currId = 'about';

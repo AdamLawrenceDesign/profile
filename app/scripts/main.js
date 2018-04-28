@@ -10,5 +10,5 @@ function bootstrap(event) {
 }
 
 function init(event) {
-    var app = new App(document.getElementById('app'));
+    var app = new App(document.querySelector('main'));
 }
