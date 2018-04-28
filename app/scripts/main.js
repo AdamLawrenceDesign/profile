@@ -1,5 +1,6 @@
 import { App } from './app';
 
+var app;
 
 document.addEventListener('readystatechange', bootstrap, false);
 
@@ -10,5 +11,10 @@ function bootstrap(event) {
 }
 
 function init(event) {
-    var app = new App(document.querySelector('main'));
+
+    if (app) {
+        return;
+    }
+
+    app = new App(document.querySelector('main'));
 }
