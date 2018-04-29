@@ -21,8 +21,11 @@ function init(event) {
     // Add menu
     var body = document.querySelector('body');
     var hamburger = document.querySelector('.hamburger');
+    var backdrop = document.querySelector('.backdrop');
 
     hamburger.addEventListener('click', () => {
+
+        console.log('hamburger');
 
         if (body.classList.contains('menu-open')) {
             body.classList.remove('menu-open');
@@ -30,5 +33,11 @@ function init(event) {
             body.classList.add('menu-open');
         }
     });
+
+    backdrop.addEventListener('click', () => {
+
+        body.classList.remove('menu-open');
+    });
+
 
 }
