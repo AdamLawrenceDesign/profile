@@ -1,5 +1,15 @@
 @import 'vars';
 
+.hamburger {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: $gutter;
+
+    cursor: pointer;
+    z-index: 10;
+}
+
 nav {
     position: fixed;
     left: 0;
@@ -15,6 +25,9 @@ nav {
 
     color: white;
     font-size: $font-size;
+
+    transition: 200ms ease;
+    transform: translateX(-$menu-width);
 
     ul {
         list-style: none;
@@ -48,6 +61,24 @@ nav {
             color: $gray-60;
         }
 
+    }
+
+}
+
+.menu-open {
+    nav {
+        transform: translateX(0);
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .hamburger {
+        display: none;
+    }
+
+    nav {
+        transform: translateX(0);
     }
 
 }

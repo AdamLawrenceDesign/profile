@@ -25,6 +25,17 @@ main {
   position: absolute;
   height: 100%;
   right: 0;
-  left: $menu-width;
+  left: 0;
+
+  transition: left 200ms ease;
+}
+
+
+@media screen and (min-width: 768px) {
+
+  main {
+    left: $menu-width;
+  }
+
 }
 
