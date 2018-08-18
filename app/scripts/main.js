@@ -1,3 +1,4 @@
+import { AnimationController } from './animation.controller';
 import { App } from './app';
 
 var app;
@@ -17,11 +18,16 @@ function init(event) {
     }
 
     app = new App(document.querySelector('main'));
+    var animationCtrl = new AnimationController();
 
     // Add menu
     var body = document.querySelector('body');
     var hamburger = document.querySelector('.hamburger');
     var backdrop = document.querySelector('.backdrop');
+    var nav = document.querySelector('nav');
+
+    animationCtrl.enter(nav);
+
 
     hamburger.addEventListener('click', () => {
 
